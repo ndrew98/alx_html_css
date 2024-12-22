@@ -15,7 +15,7 @@ This assignment is an Alx task on the css_advanced session
 ```bash
 css_advanced/
 ├── 📄 index.html
-├── 🎨 style.css
+├── 🎨 styles.css
 ├── 📸 Pictures/
 │   ├── logo.png
 │   ├── Object.png
