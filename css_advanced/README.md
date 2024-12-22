@@ -13,7 +13,7 @@ This assignment is an Alx task on the css_advanced session
 ## 📁 Project Structure
 
 ```bash
-smileschool/
+css_advanced/
 ├── 📄 index.html
 ├── 🎨 style.css
 ├── 📸 Pictures/
