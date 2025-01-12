@@ -1,0 +1,311 @@
+/* Reset and Base Styles */
+:root {
+  --color-primary: #FF6565;
+  --color-dark: #071629;
+  --color-white: #FFFFFF;
+  --max-width: 1000px;
+}
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1.6;
+  color: var(--color-dark);
+}
+
+html, body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+}
+
+/* Typography - Mobile F */
+/* Container for header and hero content */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Button Styles */
+.button {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 22px;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.67);
+}
+
+.button:hover, .button:active {
+  opacity: 0.9;
+}
+
+/* Header & Navigation - Mobile First */
+.header{
+  background-color: var(--color-dark);
+  background-image: url('../images/headphones_hero_1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--color-white);
+  min-height: 100vh;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.nav__logo {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 32px;
+  z-index: 2;
+}
+
+.nav__toggle {
+  display: none;
+}
+
+.nav__toggle-label {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.nav__toggle-label span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: 0.3s;
+}
+
+.nav__toggle-label span:nth-child(2) {
+  width: 14px;
+}
+
+.nav__menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 4rem 2rem 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  list-style: none; 
+}
+
+.nav__menu li {
+  margin: 1.5rem 0;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav__menu a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  /* letter-spacing: 2px; */
+
+}
+
+.nav__menu  li a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Navigation Toggle States -- Functionality */
+
+.nav__toggle:checked ~ .nav__menu {
+  transform: translateY(0);
+}
+/* when the .nav__toggle(checkbox) is clicked or checked , it uses the sibling (~) operator to target the nav__menu.
+And this changes the initial transform from translateY(-100%) to translateY(0) , hence bringing(sliding) the menu down into view from 
+being hidden above the viewport */
+
+.nav__toggle:checked ~ .nav__menu li {
+  opacity: 1;
+}
+/* when the toggle is checked , it makes all list items in the menu visible
+the opacity was 0 now 1 , meaning full visibility */
+
+
+/* Making the hamburger-icon turn into X */
+
+/* First line rotates 45° clockwise */
+.nav__toggle:checked ~ .nav__toggle-label span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+/* Middle line fades out */
+.nav__toggle:checked ~ .nav__toggle-label span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Last line rotates -45° counterclockwise */
+.nav__toggle:checked ~ .nav__toggle-label span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* Hero Section - Mobile */
+.hero {
+  text-align: center;
+  padding: 8rem 0;
+  margin-top: 4rem;
+}
+
+.hero__title {
+  font-size: 2rem;
+  /* margin-bottom: 1rem; */
+}
+
+.hero__subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+
+}
+
+.hero__text {
+  margin-top: 2rem;
+  font-size: 14px;
+
+}
+
+/* Tablet Styles (481px - 768px) */
+@media screen and (min-width: 481px) {
+
+
+  /* Container for header and hero content */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+ /* Header & Navigation - Mobile First */
+.header{
+  width: 100%;
+  padding: 0 auto;
+
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 0.5rem;
+}
+  /* Navigation */
+
+  .nav__menu {
+    display: flex;
+    position: static;
+    top: 14px;
+    right: 0px;
+    justify-content: right;
+    align-items: center;
+    transform: none;
+    background: none;
+    padding: 0 ;
+    gap: 3rem;
+  }
+  
+  .nav__logo {
+    position: absolute;
+    top: 34px;
+    left: 100px;
+    height: 32px;
+    z-index: 2;
+  }
+
+  .nav__menu li {
+    margin: 0;
+    opacity: 1;
+  }
+
+  .nav__menu li a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .nav__toggle-label {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Desktop Styles (768px and above) */
+@media screen and (min-width: 768px) {
+  .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+  }
+
+  .header {
+      background-position: center;
+      min-height: 100vh;
+  }
+
+  .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+  }
+  .nav__menu li a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .hero {
+      padding: 8rem 0;
+  }
+
+  .hero__title {
+      font-size: 3rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+  }
+
+  .hero__text {
+      max-width: 800px;
+      margin: 2rem auto 0;
+  }
+}
